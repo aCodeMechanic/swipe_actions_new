@@ -1,8 +1,7 @@
-name: swipe_actions
-description: Swipe actions for Flutter
-version: 0.0.2
-author: Emil Gaarde <gaardee@gmail.com>
-homepage: https://github.com/gaardee/flutter_swipe_actions
+name: swipe_actions_new
+description: Swipe actions for Flutter v3.X.X
+version: 0.0.1
+homepage: https://github.com/aCodeMechanic/swipe_actions_new
 
 environment:
   sdk: '>=2.18.6 <3.0.0'

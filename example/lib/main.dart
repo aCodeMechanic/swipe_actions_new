@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swipe_actions/swipe_actions.dart';
+import 'package:swipe_actions_new/swipe_actions.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,58 +35,59 @@ class _SwipeActionExampleState extends State<SwipeActionExample> {
           child: Card(
             child: ListView.separated(
               separatorBuilder: (context, index) => Divider(
-                    height: 0,
-                    color: Colors.black,
-                  ),
+                height: 0,
+                color: Colors.black,
+              ),
               itemCount: _counts.length,
-              itemBuilder: (context, i) => Swipe(
-                    child: ListTile(
-                      title: Text("Counter $i"),
-                      trailing: CircleAvatar(
-                        child: Text(_counts[i].toString()),
-                      ),
-                    ),
-                    menuItems: <SwipeAction>[
-                      SwipeAction(
-                        icon: Icons.add,
-                        onSelect: () {
-                          setState(() {
-                            _counts[i]++;
-                          });
-                        },
-                        highlighColor: Colors.green,
-                      ),
-                      SwipeAction(
-                        icon: Icons.remove,
-                        onSelect: () {
-                          setState(() {
-                            _counts[i]--;
-                          });
-                        },
-                        highlighColor: Colors.red,
-                      ),
-                      SwipeAction(
-                        icon: Icons.open_in_new,
-                        onSelect: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Scaffold(
-                                      appBar: AppBar(
-                                        title: Text("Counter $i"),
-                                      ),
-                                      body: Center(
-                                          child: Text(
-                                        _counts[i].toString(),
-                                        style: TextStyle(fontSize: 100),
-                                      )),
-                                    )),
-                          );
-                        },
-                        highlighColor: Colors.yellow,
-                      )
-                    ],
+              itemBuilder: (context, i) =>
+                  Swipe(
+                child: ListTile(
+                  title: Text("Counter $i"),
+                  trailing: CircleAvatar(
+                    child: Text(_counts[i].toString()),
                   ),
+                ),
+                menuItems: <SwipeAction>[
+                  SwipeAction(
+                    icon: Icons.add,
+                    onSelect: () {
+                      setState(() {
+                        _counts[i]++;
+                      });
+                    },
+                    highlighColor: Colors.green,
+                  ),
+                  SwipeAction(
+                    icon: Icons.remove,
+                    onSelect: () {
+                      setState(() {
+                        _counts[i]--;
+                      });
+                    },
+                    highlighColor: Colors.red,
+                  ),
+                  SwipeAction(
+                    icon: Icons.open_in_new,
+                    onSelect: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Scaffold(
+                                  appBar: AppBar(
+                                    title: Text("Counter $i"),
+                                  ),
+                                  body: Center(
+                                      child: Text(
+                                    _counts[i].toString(),
+                                    style: TextStyle(fontSize: 100),
+                                  )),
+                                )),
+                      );
+                    },
+                    highlighColor: Colors.yellow,
+                  )
+                ],
+              ),
             ),
           ),
         ),
