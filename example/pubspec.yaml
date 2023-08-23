@@ -10,7 +10,7 @@ description: A example for swipe_actions package
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.6 <4.0.0'
 
 dependencies:
   swipe_actions_new:

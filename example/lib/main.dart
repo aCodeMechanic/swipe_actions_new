@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swipe_actions_new/swipe_actions.dart';
+import 'package:swipe_actions_new/swipe_actions_new.dart';
 
 void main() => runApp(MyApp());
 

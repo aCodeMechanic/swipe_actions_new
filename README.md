@@ -2,7 +2,7 @@
 
 # swipe_actions_new
 
-A widget which can be used to call functions when the wrapped child is dragged or flinged. Only intended to work with horizontal swipes.
+A widget which can be used to call functions when the wrapped child is dragged or flung. Only intended to work with horizontal swipes.
 Original Library: [Swipe Actions](https://pub.dev/packages/swipe_actions)
 
 ## Getting Started
@@ -10,13 +10,13 @@ Original Library: [Swipe Actions](https://pub.dev/packages/swipe_actions)
 Import the package
 
 ```dart
-import 'package:swipe_actions_new/swipe_actions.dart';
+import 'package:swipe_actions_new/swipe_actions_new.dart';
 ```
 
 And use Swipe class, for example:
 ```dart
 Swipe(
-    child: ListTile(
+child: ListTile(
       title: Text("Some Child"),
     ),
     menuItems: <SwipeAction>[
