@@ -1,6 +1,6 @@
 name: swipe_actions_new
 description: Swipe actions for Flutter v3.X.X. Add buttons and callbacks when the child is dragged left or right. Use it and help me improve it.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/aCodeMechanic/swipe_actions_new
 
 environment:

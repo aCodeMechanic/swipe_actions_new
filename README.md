@@ -1,6 +1,6 @@
 # Swipe Actions New
 
-# swipe_actions_new
+## swipe_actions_new
 
 A widget which can be used to call functions when the wrapped child is dragged or flung. Only intended to work with horizontal swipes.
 Original Library: [Swipe Actions](https://pub.dev/packages/swipe_actions)
