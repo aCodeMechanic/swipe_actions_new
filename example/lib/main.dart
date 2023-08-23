@@ -55,7 +55,7 @@ class _SwipeActionExampleState extends State<SwipeActionExample> {
                         _counts[i]++;
                       });
                     },
-                    highlighColor: Colors.green,
+                    highlightColor: Colors.green,
                   ),
                   SwipeAction(
                     icon: Icons.remove,
@@ -64,7 +64,7 @@ class _SwipeActionExampleState extends State<SwipeActionExample> {
                         _counts[i]--;
                       });
                     },
-                    highlighColor: Colors.red,
+                    highlightColor: Colors.red,
                   ),
                   SwipeAction(
                     icon: Icons.open_in_new,
@@ -84,7 +84,7 @@ class _SwipeActionExampleState extends State<SwipeActionExample> {
                                 )),
                       );
                     },
-                    highlighColor: Colors.yellow,
+                    highlightColor: Colors.yellow,
                   )
                 ],
               ),

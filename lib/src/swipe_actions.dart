@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Swipe extends StatefulWidget {
   final Widget? child;
@@ -38,7 +37,6 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
     double screenWidth = MediaQuery.of(context).size.width;
     double offset = size/screenWidth;
     int i = widget.menuItems?.length ?? 0;
-    double _dragged = 0;
 
     final animation = new Tween(
         begin: const Offset(0.0, 0.0),
@@ -74,7 +72,7 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
                 children: widget.menuItems!.reversed.map((action) {
                   if(_selected == i){
                     i--;
-                    return Container(color: action.highlighColor, child: action);
+                    return Container(color: action.highlightColor, child: action);
                   }
                   i--;
                   return action;
@@ -91,14 +89,14 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
 }
 
 class SwipeAction extends StatefulWidget {
-  bool highligthed;
+  final bool highlighted;
   final IconData? icon;
   final Function? onSelect;
-  final Color? highlighColor;
+  final Color? highlightColor;
   final String? text;
 
   SwipeAction({
-    this.icon, this.text = null, this.onSelect, this.highlighColor = Colors.red, this.highligthed = false
+    this.icon, this.text, this.onSelect, this.highlightColor = Colors.red, this.highlighted = false
   });
 
   @override
@@ -113,7 +111,7 @@ class SwipeActionState extends State<SwipeAction> with SingleTickerProviderState
     return SizedBox(
       width: 56,
       height: 56,
-      child: Icon(widget.icon, color: (widget.highligthed ? widget.highlighColor : Colors.black54),
+      child: Icon(widget.icon, color: (widget.highlighted ? widget.highlightColor : Colors.black54),
       ),
     );
   }
