@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Swipe extends StatefulWidget {
-  final Widget child;
-  final List<SwipeAction> menuItems;
-  final List<Function> menuFunctions;
+  final Widget? child;
+  final List<SwipeAction>? menuItems;
+  final List<Function>? menuFunctions;
 
   Swipe({
     this.child, this.menuItems, this.menuFunctions
@@ -17,7 +17,7 @@ class Swipe extends StatefulWidget {
 }
 
 class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
   int _selected = 0;
 
   @override
@@ -34,10 +34,10 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    int size = widget.menuItems.length * 60;
+    int size = (widget.menuItems?.length ?? 0) * 60;
     double screenWidth = MediaQuery.of(context).size.width;
     double offset = size/screenWidth;
-    int i = widget.menuItems.length;
+    int i = widget.menuItems?.length ?? 0;
     double _dragged = 0;
 
     final animation = new Tween(
@@ -48,16 +48,16 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
     return new GestureDetector(
       onHorizontalDragUpdate: (data) {
         // we can access context.size here
-        double newValue = _controller.value - (data.primaryDelta / context.size.width);
+        double newValue = _controller.value - (data.primaryDelta! / context.size!.width);
         setState(() {
           _controller.value = newValue;
-          _selected = ((newValue-(1.0/widget.menuItems.length)*0.6)/(1.0/widget.menuItems.length)).ceil();
+          _selected = ((newValue-(1.0/widget.menuItems!.length)*0.6)/(1.0/widget.menuItems!.length)).ceil();
         });
       },
       onHorizontalDragEnd: (data) {
         if(_selected > 0) {
-          _controller.animateTo(_selected * (1.0 / widget.menuItems.length));
-          widget.menuItems.elementAt(_selected - 1).onSelect();
+          _controller.animateTo(_selected * (1.0 / widget.menuItems!.length));
+          widget.menuItems!.elementAt(_selected - 1).onSelect!();
           setState(() {
             _selected = 0;
           });
@@ -71,7 +71,7 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: widget.menuItems.reversed.map((action) {
+                children: widget.menuItems!.reversed.map((action) {
                   if(_selected == i){
                     i--;
                     return Container(color: action.highlighColor, child: action);
@@ -92,10 +92,10 @@ class SwipeState extends State<Swipe> with SingleTickerProviderStateMixin {
 
 class SwipeAction extends StatefulWidget {
   bool highligthed;
-  final IconData icon;
-  final Function onSelect;
-  final Color highlighColor;
-  final String text;
+  final IconData? icon;
+  final Function? onSelect;
+  final Color? highlighColor;
+  final String? text;
 
   SwipeAction({
     this.icon, this.text = null, this.onSelect, this.highlighColor = Colors.red, this.highligthed = false
